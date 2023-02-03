@@ -18,3 +18,10 @@ My name is Grant Sivley and I am a pharmacy informaticist. Many current informat
 On this website, I would like to provide real life training exercises to sharpen your skills in pharmacy informatics. Outside of that I would like to provide an area for informaticists to collaborate to solve problems as a team.
 
 ##### For all article requests and sponsorship inquiries please reach out to TODO: make email
+
+## How to run
+1. Git clone the project
+2. cd into project
+3. create virtual environment of your choice
+4. Install python dependencies
+5. cd into front end and run `npm start`
