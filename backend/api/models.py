@@ -15,6 +15,23 @@ class User(models.Model):
         return self.email
     
 
+# Author Model
+# Connect to both User and Article
+class Author(models.Model):
+    user = models.OneToOneField(
+        User,
+        primary_key=True,
+        on_delete=models.RESTRICT
+    )
+    
+    position_title = models.CharField(max_length=100)
+    image = models.ImageField()
+    description = models.TextField(blank=False)
+
+    def __str__(self):
+        return self.user.first_name
+
+        
 # Article model
 class Article(models.Model):
     title = models.CharField(max_length=50, unique=True)
@@ -22,10 +39,11 @@ class Article(models.Model):
     date_created = models.DateField(auto_now_add=True)
 
     # Need to link with user
-    author = models.CharField(max_length=50)
+    author = models.ForeignKey(Author, on_delete=models.RESTRICT)
 
     content = models.TextField()
     likes = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
         return self.title
+    
