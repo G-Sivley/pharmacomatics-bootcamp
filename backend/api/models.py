@@ -9,3 +9,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=20)
     email = models.EmailField(max_length=254, unique=True)
     password = models.CharField(max_length=50)
+    
+    # This returns the user email instead of <User0001>
+    def __str__(self):
+        return self.email
