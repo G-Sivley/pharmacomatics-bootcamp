@@ -7,6 +7,7 @@ import Courses from "./routes/Courses";
 import Articles from "./routes/Articles";
 import Login from "./routes/Login";
 import SignUp from "./routes/SignUp";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route element={<Articles />} path="articles/" />
           <Route element={<Login />} path="login/" />
           <Route element={<SignUp />} path="signup/" />
+          <Route element={<ErrorPage />} path="*" />
         </Routes>
       </body>
     </div>
