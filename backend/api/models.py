@@ -29,7 +29,8 @@ class Author(models.Model):
     description = models.TextField(blank=False)
 
     def __str__(self):
-        return self.user.first_name
+        # Print First and Last name together
+        return f"{self.user.first_name} {self.user.last_name}"
 
         
 # Article model
@@ -42,8 +43,17 @@ class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.RESTRICT)
 
     content = models.TextField()
-    likes = models.PositiveSmallIntegerField(default=1)
+    likes = models.PositiveSmallIntegerField(default=1, editable=False)
 
     def __str__(self):
         return self.title
-    
+
+
+# Course Model
+class Course(models.Model):
+    title = models.CharField(max_length=50, unique=True)
+    author = models.ForeignKey(Author, on_delete=models.RESTRICT)
+    # 0 to 10 rating
+    difficulty = models.PositiveSmallIntegerField() 
+    cost = models.PositiveSmallIntegerField(default=0)
+    content = models.TextField()
