@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./routes/Home";
 import Courses from "./routes/Courses";
 import Articles from "./routes/Articles";
+import Article from "./routes/Article";
 import Login from "./routes/Login";
 import SignUp from "./routes/SignUp";
 import ErrorPage from "./pages/ErrorPage";
@@ -22,6 +23,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<Courses />} path="courses/" />
           <Route element={<Articles />} path="articles/" />
+          <Route element={<Article />} path="articles/:id" />
           <Route element={<Login />} path="login/" />
           <Route element={<SignUp />} path="signup/" />
           <Route element={<ErrorPage />} path="*" />
