@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    // <div className="py-20 border my-20 mx-72 border-gray-200 rounded-lg shadow">
     <div className="container max-w-sm mx-auto my-20 border border-gray-200 rounded-lg shadow">
       <div className="py-10 mx-10">
         <h1 className="pb-8 text-3xl font-bold">Welcome</h1>
