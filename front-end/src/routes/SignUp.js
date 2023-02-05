@@ -58,7 +58,7 @@ const SignUp = () => {
 
         <p className="pt-20">
           Already have an account?{" "}
-          <Link className="text-accent font-bold underline" to="/signup/">
+          <Link className="text-accent font-bold underline" to="/login/">
             Login
           </Link>{" "}
           here!
