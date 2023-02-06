@@ -25,7 +25,7 @@ class Author(models.Model):
     )
     
     position_title = models.CharField(max_length=100)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="author_photos")
     description = models.TextField(blank=False)
 
     def __str__(self):
@@ -36,12 +36,10 @@ class Author(models.Model):
 # Article model
 class Article(models.Model):
     title = models.CharField(max_length=50, unique=True)
+    img = models.ImageField(upload_to="article_photos", default="../default.jpg")
     subtitle = models.CharField(max_length=100)
     date_created = models.DateField(auto_now_add=True)
-
-    # Need to link with user
     author = models.ForeignKey(Author, on_delete=models.RESTRICT)
-
     content = models.TextField()
     likes = models.PositiveSmallIntegerField(default=1, editable=False)
 
@@ -57,3 +55,6 @@ class Course(models.Model):
     difficulty = models.PositiveSmallIntegerField() 
     cost = models.PositiveSmallIntegerField(default=0)
     content = models.TextField()
+
+    def __str__(self):
+        return self.title

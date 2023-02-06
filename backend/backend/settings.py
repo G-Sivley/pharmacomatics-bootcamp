@@ -40,6 +40,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My own additions
     'api.apps.ApiConfig',
+    'rest_framework',
 
     # Prebuilt
     'django.contrib.admin',
