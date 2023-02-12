@@ -21,8 +21,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'first_name',
             'last_name',
-            'email',
-            'password'
         ]
 
 class AuthorSerializer(serializers.ModelSerializer):
