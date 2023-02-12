@@ -3,33 +3,7 @@ from rest_framework import serializers
 from .models import Article, Author, Course, User
 
 
-class ArticleSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Article
-        fields = [
-            'title',
-            'img',
-            'subtitle',
-            'date_created',
-            'author',
-            'content',
-            'likes'
-        ]
-
-
-class AuthorSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.HyperlinkedRelatedField(view_name='user-detail', queryset=User.objects.all())
-    class Meta:
-        model = Author
-        fields = [
-            'user',
-            'position_title',
-            'image',
-            'description'
-        ]
-
-
-class CourseSerializer(serializers.HyperlinkedModelSerializer):
+class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = [
@@ -41,7 +15,7 @@ class CourseSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
@@ -49,4 +23,29 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             'last_name',
             'email',
             'password'
+        ]
+
+class AuthorSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    class Meta:
+        model = Author
+        fields = [
+            'user',
+            'position_title',
+            'image',
+            'description'
+        ]
+
+class ArticleSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
+    class Meta:
+        model = Article
+        fields = [
+            'title',
+            'img',
+            'subtitle',
+            'date_created',
+            'author',
+            'content',
+            'likes'
         ]
