@@ -16,7 +16,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
-
     queryset = Author.objects.all().order_by('-description')
     serializer_class = AuthorSerializer
     permissions_classes = [permissions.IsAuthenticated]
