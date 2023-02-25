@@ -25,7 +25,7 @@ class Author(models.Model):
     )
     
     position_title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="author_photos")
+    image = models.ImageField(upload_to="files/author_photos")
     description = models.TextField(blank=False)
 
     def __str__(self):
@@ -36,7 +36,7 @@ class Author(models.Model):
 # Article model
 class Article(models.Model):
     title = models.CharField(max_length=50, unique=True)
-    img = models.ImageField(upload_to="article_photos", default="../default.jpg")
+    img = models.ImageField(upload_to="files/article_photos")
     subtitle = models.CharField(max_length=100)
     date_created = models.DateField(auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.RESTRICT)
