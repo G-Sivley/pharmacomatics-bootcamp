@@ -12,7 +12,7 @@ const ArticleCard = (props) => {
       <Card className="mx-auto shadow" sx={{ maxWidth: 345 }}>
         <CardMedia
           sx={{ height: 140 }}
-          image={props.article.img_location}
+          image={props.article.img}
           title={props.article.img_title}
         />
         <CardContent>
@@ -20,7 +20,7 @@ const ArticleCard = (props) => {
             {props.article.title}
           </Typography>
           <Typography gutterBottom variant="body2">
-            Written by {props.article.author} on {props.article.date_created}
+            Written by {props.article.author.user.first_name} {props.article.author.user.last_name} on {props.article.date_created}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {props.article.subtitle}
